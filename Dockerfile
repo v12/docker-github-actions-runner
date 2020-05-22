@@ -9,7 +9,7 @@ ENV GITHUB_REPOSITORY ""
 ENV RUNNER_WORKDIR "_work"
 
 RUN apt update && \
-    apt install -y jq curl sudo liblttng-ust0 libcurl4 libssl1.1 libkrb5-3 zlib1g libicu66 && \
+    apt install -y jq curl git sudo unzip liblttng-ust0 libcurl4 libssl1.1 libkrb5-3 zlib1g libicu66 && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m github && \
