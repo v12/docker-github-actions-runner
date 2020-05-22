@@ -8,8 +8,9 @@ ENV GITHUB_OWNER ""
 ENV GITHUB_REPOSITORY ""
 ENV RUNNER_WORKDIR "_work"
 
-RUN apt update && \
-    apt install -y jq curl git sudo unzip liblttng-ust0 libcurl4 libssl1.1 libkrb5-3 zlib1g libicu66 && \
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt update && \
+    apt install -yq jq curl git sudo unzip liblttng-ust0 libcurl4 libssl1.1 libkrb5-3 zlib1g libicu66 && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m github && \
@@ -23,7 +24,5 @@ RUN curl -Ls https://github.com/actions/runner/releases/download/v${GITHUB_RUNNE
 
 COPY --chown=github:github entrypoint.sh ./entrypoint.sh
 RUN sudo chmod u+x ./entrypoint.sh
-
-RUN "ls"
 
 ENTRYPOINT ["/home/github/entrypoint.sh"]
