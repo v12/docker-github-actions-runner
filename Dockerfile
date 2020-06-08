@@ -10,7 +10,7 @@ ENV RUNNER_WORKDIR "_work"
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt update && \
-    apt install -yq jq curl git sudo unzip liblttng-ust0 libcurl4 libssl1.1 libkrb5-3 zlib1g libicu66 && \
+    apt install -yq jq curl git sudo unzip iputils-ping liblttng-ust0 libcurl4 libssl1.1 libkrb5-3 zlib1g libicu66 && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m github && \
