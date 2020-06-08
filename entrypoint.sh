@@ -7,7 +7,7 @@ then
   echo "Registering the agent in the organization ${GITHUB_ORG}"
 elif [ ! -z "$GITHUB_OWNER" ]
 then
-  if [ -z "$GITHUB_REPOSITORY"]
+  if [ -z "$GITHUB_REPOSITORY" ]
   then
     >&2 echo "GITHUB_REPOSITORY environment variable must be set when registering an agent"
     exit 1
